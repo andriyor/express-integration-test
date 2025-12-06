@@ -1,9 +1,12 @@
 const express = require("express");
+
+const { fetchHttpbun } = require("./api");
+
 const app = express();
 const port = 3000;
 
 app.get("/", async (req, res) => {
-  const resp = await fetch("https://httpbun.com/get");
+  const resp = await fetchHttpbun();
   const json = await resp.json();
   res.json(json);
 });
